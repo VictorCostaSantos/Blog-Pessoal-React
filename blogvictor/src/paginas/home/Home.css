@@ -1,0 +1,12 @@
+.titulo{
+    color: rgb(255, 0, 0);
+    text-align: center;
+    background-color: blanchedalmond;
+    margin: 0px;
+}
+.img{
+    width: 400px;
+    margin: 10px;
+    display: block;
+    margin: 10px auto;
+}
