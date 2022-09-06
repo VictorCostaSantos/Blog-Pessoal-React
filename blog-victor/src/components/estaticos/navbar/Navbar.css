@@ -1,0 +1,13 @@
+.cursor{
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    
+}
+.cor{
+    background-color: blueviolet;
+}
+
+
+.text-decorator-none{
+    text-decoration: none;
+}

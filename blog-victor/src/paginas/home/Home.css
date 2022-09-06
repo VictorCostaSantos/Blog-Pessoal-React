@@ -1,0 +1,20 @@
+.caixa{
+    background-color:#9c68ff;
+}
+.titulo{
+    color: blue;
+    text-align: center;
+}
+
+.img{
+    width: 500px;
+    height: 500px;
+    display: block;
+    margin: 0 auto;
+}
+.botao{
+    border-color:white !important;
+    background-color: #6D49B3 !important;
+    color: white !important;
+
+}
