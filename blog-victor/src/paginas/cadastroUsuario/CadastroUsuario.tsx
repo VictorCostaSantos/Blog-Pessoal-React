@@ -69,7 +69,7 @@ function cadastroUsuario(){
                   <Button
                     variant="contained"
                     className="text1"
-                    style={{ backgroundColor: "" }}
+                    style={{ backgroundColor: "#ffffff" }}
                   >
                     cancelar
                   </Button>

@@ -1,9 +1,49 @@
+import React, { useState,useEffect, ChangeEvent } from 'react';
 import { Box,Grid, TextField, Typography,Button} from "@material-ui/core";
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import useLocalStorage from 'react-use-localstorage';
+import userlogin from '../../models/UserLogin';
 import './Login.css'
+import { api } from '../../services/Service';
 
 function Login() {
+
+  let history = useHistory();
+  const [token,setToken] =useLocalStorage('token');
+
+  const [userLogin, setUserlogin] = useState<userlogin>({
+    id: 0,
+    usuario: '',
+    senha:'',
+    token:'',
+  })
+
+  useEffect(()=>{
+    if(token != '')
+    history.push('/home')
+  }, [token])
+
+  function updatedModel(e: ChangeEvent<HTMLInputElement>){
+    setUserlogin({
+      ...userLogin,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  async function onSubmit(e:ChangeEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+   try{
+        const resposta= await api.post('/usuarios/logar', userLogin)
+        setToken(resposta.data.token)
+
+        alert('usuario logado com sucesso');
+   }catch(error){
+      alert('Dados do Usuario inconsistentes. Erro ao logar!');
+   }
+    
+  }
+
     return (
       <Grid
         container
@@ -25,6 +65,7 @@ function Login() {
                 Entrar
               </Typography>
               <TextField
+                value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>)=> updatedModel}
                 id="usuario"
                 label="usuario"
                 variant="outlined"
@@ -34,6 +75,7 @@ function Login() {
                 fullWidth
               ></TextField>
               <TextField
+                value={userLogin.senha} onChange={(e:ChangeEvent<HTMLInputElement>)=> updatedModel}
                 id="senha"
                 label="senha"
                 variant="outlined"
@@ -44,7 +86,6 @@ function Login() {
                 fullWidth
               ></TextField>
               <Box marginTop={2} textAlign="center">
-                <Link to="/home" className="text-decoration-none">
                   <Button
                     type="submit"
                     variant="contained"
@@ -57,7 +98,6 @@ function Login() {
                   >
                     Logar
                   </Button>
-                </Link>
                 <Box display="flex" justifyContent="center" marginTop={2}>
                   <Box marginRight={1}>
                     <Typography variant="subtitle1" gutterBottom align="center">
@@ -65,7 +105,7 @@ function Login() {
                       Não tem uma conta?
                     </Typography>
                   </Box>
-                  <Link to='/cadastrousuario'>
+                  <Link to="/cadastrousuario">
                     {" "}
                     <Typography
                       variant="subtitle1"
