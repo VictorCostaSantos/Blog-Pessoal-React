@@ -7,15 +7,6 @@
     text-align: center;
 }
 
-.img1 {
-    background-image:url(https://images.pexels.com/photos/6347976/pexels-photo-6347976.jpeg?auto=compress&cs=tinysrgb&w=1600);
-    background-repeat:no-repeat;
-    width: 100vh;
-    min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-}
-
 .botao1 {
     border-color: white !important;
     background-color: #6D49B3 !important;
@@ -28,4 +19,30 @@
     background-color: #6d49b3 !important;
     color:white !important;
     margin: 30px !important;
+}
+.imagem2 {
+    background-image: url(https://images.pexels.com/photos/6347976/pexels-photo-6347976.jpeg?auto=compress&cs=tinysrgb&w=1600);
+    background-repeat: no-repeat;
+    width: 100vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.textos2 {
+    font-weight: bold !important;
+}
+
+.btnCancelar {
+    margin-right: 20px !important;
+    border-color: white !important;
+    background-color: #a9a9a9 !important;
+    color: white !important;
+}
+
+.btnCadastrar{
+    margin-right: 20px !important;
+    border-color: white !important;
+    background-color: #6D49B3 !important;
+    color: white !important;
 }

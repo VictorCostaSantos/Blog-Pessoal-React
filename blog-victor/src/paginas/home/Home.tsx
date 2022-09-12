@@ -1,6 +1,8 @@
 import React from 'react';
 import {Typography, Box, Grid, Button} from '@material-ui/core';
 import './Home.css';
+import TabPostagem from "../../components/postagens/tabpostagem/TabPostagem";
+
 
 
 function Home() {
@@ -13,7 +15,7 @@ function Home() {
           alignItems="center"
           className="caixa"
         >
-          <Grid alignItems="center" item xs={6} >
+          <Grid alignItems="center" item xs={6}>
             <Box paddingX={20}>
               <Typography
                 variant="h3"
@@ -46,9 +48,13 @@ function Home() {
           <Grid item xs={6}>
             <img
               src="https://stories.freepiklabs.com/api/vectors/left-hander/cuate/render?color=FF0000FF&background=complete&hide="
-              alt="Desenho de menina estudando"
+              alt=""
+              width="500px"
+              height="500px"
             />
-            <Grid xs={12} style={{ backgroundColor: "white" }}></Grid>
+          </Grid>
+          <Grid xs={12} className="postagens">
+            <TabPostagem />
           </Grid>
         </Grid>
       </>
